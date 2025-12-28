@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mindful Space - Mental Wellness Platform</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  </script>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <header class="smooth-header">
+    <div class="header-container">
+      <div class="logo-section">
+        <div class="logo-container" onclick="showPage('home')">
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge> 
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <circle cx="50" cy="50" r="45" fill="url(#logoGradient)" filter="url(#glow)" opacity="0.8"/>
+            <path d="M30 50 Q50 30 70 50 Q50 70 30 50" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="50" cy="50" r="8" fill="white" opacity="0.9"/>
+            <path d="M25 35 Q35 25 45 35" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            <path d="M55 35 Q65 25 75 35" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+          </svg>
+          <div class="logo-text">
+            <h1>Mindful Space</h1>
+            <p class="tagline">Your Journey to Mental Wellness</p>
+          </div>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#" onclick="showPage('home')" class="nav-link active">
+          <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </div>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="#" onclick="showPage('services')" class="nav-link">
+          <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <span class="nav-text">Services</span>
+        </a>
+        <a href="#" onclick="showPage('affirmations')" class="nav-link">
+          <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <span class="nav-text">Affirmations</span>
+        </a>
+        <a href="#" onclick="showPage('meditation')" class="nav-link">
+          <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+          </div>
+          <span class="nav-text">Meditation</span>
+        </a>
+        <a href="#" onclick="showPage('contact')" class="nav-link">
+          <div class="nav-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <span class="nav-text">Contact</span>
+        </a>
+      </nav>
+      <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOME PAGE -->
+  <div id="home" class="page active">
+    <section class="hero">
+      <div class="hero-background">
+        <div class="hero-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h2>Your Calm Space for Mental Wellness</h2>
+          <p>Recharge your soul. One breath at a time.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" onclick="showPage('services')">
+              <span>Begin Your Journey</span>
+              <span class="btn-icon">→</span>
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('meditation')">
+              <span>Start Meditating</span>
+              <span class="btn-icon">🧘‍♂️</span>
+            </button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="breathe-circle-container">
+            <div class="breathe-circle"></div>
+            <div class="breathing-text">Breathe with me</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dynamic-section">
+      <div class="container">
+        <div class="dynamic-content">
+          <div class="dynamic-card clock-greeting" id="clock-greeting">
+            <div class="card-header">
+              <span class="card-icon">🕐</span>
+              <h3>Live Time</h3>
+            </div>
+            <div class="card-content">
+              <!-- Dynamic content will be inserted here -->
+            </div>
+          </div>
+          <div class="dynamic-card quote-section" id="quote-of-the-day">
+            <div class="card-header">
+              <span class="card-icon">💭</span>
+              <h3>Daily Wisdom</h3>
+            </div>
+            <div class="card-content">
+              <!-- Quote content will be inserted here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="affirmation-section">
+      <div class="container">
+        <div class="affirmation-box">
+          <div class="affirmation-container">
+            <div class="affirmation-header">
+              <h3>✨ Your Daily Affirmation</h3>
+              <p>Start your day with positive energy</p>
+            </div>
+            <div class="affirmation-content">
+              <div class="affirmation-text" id="affirmation-text">
+                Click the button below for today's affirmation.
+              </div>
+              <button class="btn btn-affirmation" onclick="generateAffirmation()">
+                <span>🌀 Get New Affirmation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--nature-gradient); padding: 80px 20px;">
+      <h3 style="text-align: center; font-size: 2.5em; margin-bottom: 20px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">✨ Daily Self-Care Tips</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>🌬️ Breathe Deeply</h4>
+          <p>Start with 5 mindful breaths. Inhale peace, exhale stress. Let each breath center your mind.</p>
+        </div>
+        <div class="card">
+          <h4>📓 Reflect in a Journal</h4>
+          <p>Write 3 things you're grateful for today. Small wins count and build momentum.</p>
+        </div>
+        <div class="card">
+          <h4>💗 Practice Self-Compassion</h4>
+          <p>"I am healing. I am growing. I am becoming." Treat yourself with kindness.</p>
+        </div>
+        <div class="card">
+          <h4>🌱 Connect with Nature</h4>
+          <p>Step outside, feel the sun, listen to birds. Nature heals the soul naturally.</p>
+        </div>
+        <div class="card">
+          <h4>🎵 Listen Mindfully</h4>
+          <p>Play calming music or sounds. Let melodies wash away tension and stress.</p>
+        </div>
+        <div class="card">
+          <h4>🤝 Reach Out</h4>
+          <p>Connect with someone who cares. Sharing your journey lightens the load.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 80px 30px; background: var(--primary-gradient); text-align: center; color: white;">
+      <blockquote style="font-size: 1.8em; font-style: italic; max-width: 800px; margin: 0 auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.3);">
+        "You don't have to control your thoughts. You just have to stop letting them control you."
+        <span style="display: block; margin-top: 20px; font-size: 1em; color: rgba(255,255,255,0.8);">– Dan Millman</span>
+      </blockquote>
+    </section>
+  </div>
+
+  <!-- SERVICES PAGE -->
+  <div id="services" class="page">
+    <div class="page-header">
+      <div class="container">
+        <div class="page-title">
+          <h2>🎯 Our Services</h2>
+          <p>Comprehensive mental wellness solutions tailored to your unique journey of healing and growth.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-section">
+      <div class="container">
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🧘‍♀️</div>
+              <div class="service-badge">Most Popular</div>
+            </div>
+            <div class="service-content">
+              <h4>One-on-One Therapy</h4>
+              <p>Personalized therapy sessions with licensed mental health professionals. Work through challenges at your own pace in a safe, confidential environment.</p>
+              <div class="service-features">
+                <span class="feature-tag">Personalized</span>
+                <span class="feature-tag">Confidential</span>
+                <span class="feature-tag">Professional</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">₹2,000 <span>/ session</span></div>
+              <button class="btn btn-service">Book Session</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">👥</div>
+            </div>
+            <div class="service-content">
+              <h4>Group Therapy</h4>
+              <p>Connect with others on similar journeys. Share experiences, gain insights, and build a supportive community in our guided group sessions.</p>
+              <div class="service-features">
+                <span class="feature-tag">Community</span>
+                <span class="feature-tag">Supportive</span>
+                <span class="feature-tag">Affordable</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">₹800 <span>/ session</span></div>
+              <button class="btn btn-service">Join Group</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🌟</div>
+            </div>
+            <div class="service-content">
+              <h4>Mindfulness Workshops</h4>
+              <p>Learn practical mindfulness techniques through interactive workshops. Develop skills for stress management and emotional regulation.</p>
+              <div class="service-features">
+                <span class="feature-tag">Interactive</span>
+                <span class="feature-tag">Educational</span>
+                <span class="feature-tag">Practical</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">₹1,200 <span>/ workshop</span></div>
+              <button class="btn btn-service">Register Now</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">📱</div>
+              <div class="service-badge">24/7 Access</div>
+            </div>
+            <div class="service-content">
+              <h4>Digital Wellness Program</h4>
+              <p>24/7 access to guided meditations, mood tracking, progress monitoring, and emergency support through our comprehensive app.</p>
+              <div class="service-features">
+                <span class="feature-tag">24/7 Access</span>
+                <span class="feature-tag">Mobile App</span>
+                <span class="feature-tag">Tracking</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">₹599 <span>/ month</span></div>
+              <button class="btn btn-service">Start Free Trial</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">🌙</div>
+            </div>
+            <div class="service-content">
+              <h4>Sleep Therapy</h4>
+              <p>Specialized programs to improve sleep quality and address insomnia. Includes sleep hygiene education and relaxation techniques.</p>
+              <div class="service-features">
+                <span class="feature-tag">Sleep Focused</span>
+                <span class="feature-tag">Relaxation</span>
+                <span class="feature-tag">Hygiene</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">₹1,500 <span>/ session</span></div>
+              <button class="btn btn-service">Learn More</button>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-icon">💼</div>
+            </div>
+            <div class="service-content">
+              <h4>Corporate Wellness</h4>
+              <p>Workplace mental health programs, stress management workshops, and employee assistance programs for organizations.</p>
+              <div class="service-features">
+                <span class="feature-tag">Corporate</span>
+                <span class="feature-tag">Workplace</span>
+                <span class="feature-tag">Team</span>
+              </div>
+            </div>
+            <div class="service-footer">
+              <div class="service-price">Contact <span>for pricing</span></div>
+              <button class="btn btn-service">Get Quote</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section style="background: var(--calm-gradient); padding: 60px 20px; text-align: center; color: white; margin-top: 40px;">
+      <h3 style="font-size: 2em; margin-bottom: 20px;">🎁 Special Offers</h3>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.2em; margin-bottom: 20px;">
+          <strong>New Client Special:</strong> Get 20% off your first therapy session
+        </p>
+        <p style="font-size: 1.2em; margin-bottom: 20px;">
+          <strong>Student Discount:</strong> 30% off all services with valid student ID
+        </p>
+        <p style="font-size: 1.2em;">
+          <strong>Family Package:</strong> Group discounts available for family therapy sessions
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- AFFIRMATIONS PAGE -->
+  <div id="affirmations" class="page">
+    <div class="section-header">
+      <h2>💫 Daily Affirmations</h2>
+      <p>Positive affirmations to rewire your mindset and cultivate self-love, confidence, and inner peace.</p>
+    </div>
+
+    <section class="affirmation-box">
+      <div class="affirmation-container">
+        <h3>✨ Your Personal Affirmation</h3>
+        <div class="affirmation-text" id="affirmation-text-page">
+          Click below to receive a personalized affirmation for your journey.
+        </div>
+        <button class="btn" onclick="generateAffirmationPage()">
+          🌀 Generate Affirmation
+        </button>
+      </div>
+    </section>
+
+    <section style="padding: 60px 20px; background: white;">
+      <h3 style="text-align: center; font-size: 2em; margin-bottom: 40px; color: #667eea;">🌅 Morning Affirmations</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>🌞 Energy & Vitality</h4>
+          <p>"I wake up energized and ready to embrace all the possibilities this day brings."</p>
+        </div>
+        <div class="card">
+          <h4>💪 Strength & Courage</h4>
+          <p>"I have the strength to face any challenge and the wisdom to find solutions."</p>
+        </div>
+        <div class="card">
+          <h4>❤️ Self-Love</h4>
+          <p>"I am worthy of love, respect, and all the good things life has to offer."</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 60px 20px; background: var(--nature-gradient);">
+      <h3 style="text-align: center; font-size: 2em; margin-bottom: 40px; color: #667eea;">🌙 Evening Reflections</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>🙏 Gratitude</h4>
+          <p>"I am grateful for the lessons learned and the growth experienced today."</p>
+        </div>
+        <div class="card">
+          <h4>🕊️ Peace</h4>
+          <p>"I release the stress of today and welcome peaceful rest and renewal."</p>
+        </div>
+        <div class="card">
+          <h4>🌱 Growth</h4>
+          <p>"Every day I am becoming a better version of myself through self-compassion."</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MEDITATION PAGE -->
+  <div id="meditation" class="page">
+    <div class="section-header">
+      <h2>🧘‍♂️ Meditation Center</h2>
+      <p>Find your inner peace through guided meditations, breathing exercises, and mindfulness practices.</p>
+    </div>
+
+    <section style="padding: 60px 20px; text-align: center; background: var(--calm-gradient); color: white;">
+      <h3 style="font-size: 2em; margin-bottom: 30px;">🌬️ Breathing Exercise</h3>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <div class="breathe-circle" id="breathing-guide"></div>
+        <p style="font-size: 1.2em; margin-bottom: 20px;">Follow the circle: Inhale as it grows, exhale as it shrinks</p>
+        <button class="btn" onclick="startBreathingExercise()">Start 5-Minute Session</button>
+        <div id="breathing-timer" style="font-size: 1.5em; margin-top: 20px; font-weight: bold;"></div>
+      </div>
+    </section>
+
+    <div class="cards">
+      <div class="card">
+        <h4>🌅 Morning Meditation</h4>
+        <p>Start your day with clarity and purpose. A gentle 10-minute guided meditation to set positive intentions.</p>
+        <button class="btn" style="margin-top: 15px;">Play Now</button>
+      </div>
+
+      <div class="card">
+        <h4>😰 Anxiety Relief</h4>
+        <p>Calm your nervous system with specialized breathing techniques and grounding exercises.</p>
+        <button class="btn" style="margin-top: 15px;">Begin Session</button>
+      </div>
+
+      <div class="card">
+        <h4>😴 Sleep Meditation</h4>
+        <p>Gentle guided meditation to help you unwind, release tension, and prepare for restful sleep.</p>
+        <button class="btn" style="margin-top: 15px;">Start Tonight</button>
+      </div>
+
+      <div class="card">
+        <h4>💼 Work Stress Relief</h4>
+        <p>Quick 5-minute meditation break to reset your mind and reduce workplace stress.</p>
+        <button class="btn" style="margin-top: 15px;">Take Break</button>
+      </div>
+
+      <div class="card">
+        <h4>❤️ Loving Kindness</h4>
+        <p>Cultivate compassion for yourself and others through this heart-opening meditation practice.</p>
+        <button class="btn" style="margin-top: 15px;">Practice Now</button>
+      </div>
+
+      <div class="card">
+        <h4>🎯 Focus & Concentration</h4>
+        <p>Improve your mental clarity and concentration with targeted mindfulness exercises.</p>
+        <button class="btn" style="margin-top: 15px;">Enhance Focus</button>
+      </div>
+    </div>
+
+    <section style="background: white; padding: 60px 20px; text-align: center;">
+      <h3 style="color: #667eea; font-size: 2em; margin-bottom: 30px;">🎵 Meditation Music</h3>
+      <p style="font-size: 1.2em; color: var(--text-light); max-width: 600px; margin: 0 auto;">
+        Enhance your meditation practice with our curated collection of calming sounds, nature recordings, and ambient music designed to deepen your mindfulness experience.
+      </p>
+    </section>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact" class="page">
+    <div class="section-header">
+      <h2>📞 Contact Us</h2>
+      <p>Reach out to begin your wellness journey. We're here to support you every step of the way.</p>
+    </div>
+
+    <section style="padding: 60px 20px; background: white;">
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4>📍 Visit Us</h4>
+          <p>123 Wellness Street<br>
+          Mental Health District<br>
+          Ahmedabad, Gujarat 380001<br>
+          India</p>
+        </div>
+        
+        <div class="contact-item">
+          <h4>📞 Call Us</h4>
+          <p>Main: +91 98765 43210<br>
+          Emergency: +91 98765 43211<br>
+          Toll Free: 1800-MINDFUL<br>
+          Available 24/7</p>
+        </div>
+        
+        <div class="contact-item">
+          <h4>✉️ Email Us</h4>
+          <p>info@mindfulspace.com<br>
+          support@mindfulspace.com<br>
+          emergency@mindfulspace.com<br>
+          Response within 2 hours</p>
+        </div>
+        
+        <div class="contact-item">
+          <h4>🕒 Hours</h4>
+          <p>Monday - Friday: 8am - 8pm<br>
+          Saturday: 9am - 6pm<br>
+          Sunday: 10am - 4pm<br>
+          Emergency: 24/7</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 60px 20px; background: var(--nature-gradient);">
+      <div class="contact-form">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #667eea;">Send us a Message</h3>
+        <form id="contactForm" onsubmit="event.preventDefault(); alert('Message submitted successfully!');">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="number" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Service Interest</label>
+            <select id="service" name="service">
+              <option value="">Select a service</option>
+              <option value="therapy">One-on-One Therapy</option>
+              <option value="group">Group Therapy</option>
+              <option value="workshop">Mindfulness Workshop</option>
+              <option value="digital">Digital Wellness Program</option>
+              <option value="sleep">Sleep Therapy</option>
+              <option value="corporate">Corporate Wellness</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="urgency">Urgency Level</label>
+            <select id="urgency" name="urgency">
+              <option value="low">General Inquiry</option>
+              <option value="medium">Schedule within a week</option>
+              <option value="high">Need immediate support</option>
+              <option value="emergency">Emergency (call instead)</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell us about your needs, concerns, or questions..." required></textarea>
+          </div>
+          
+          <button type="submit" class="btn" style="width: 100%; font-size: 1.1em;">
+            Send Message 💌
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <section style="background: var(--calm-gradient); color: white; padding: 60px 20px; text-align: center;">
+      <h3 style="font-size: 2em; margin-bottom: 20px;">🚨 Crisis Support</h3>
+      <p style="font-size: 1.2em; margin-bottom: 20px;">
+        If you're experiencing a mental health emergency, please reach out immediately:
+      </p>
+      <div style="font-size: 1.3em; font-weight: bold;">
+        <p>Emergency Hotline: <a href="tel:+919876543211" style="color: #fff; text-decoration: underline;">+91 98765 43211</a></p>
+        <p>National Suicide Prevention: <a href="tel:1800" style="color: #fff; text-decoration: underline;">1800-XXX-XXXX</a></p>
+        <p>Crisis Text Line: Text "HELLO" to 741741</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Mindful Space - Mental Wellness Platform | Designed for College Mini Project</p>
+    <p style="margin-top: 10px; opacity: 0.8;">
+      Developed by [Parthvi Vyas] | [ITM(SLS)BARODA UNIVERSITY] | [Diploma IT] | [2025]
+    </p>
+  </footer>
+</body>
+</html>
